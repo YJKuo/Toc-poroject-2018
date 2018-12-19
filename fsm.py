@@ -51,13 +51,13 @@ class TocMachine(GraphMachine):
         )
 
     def is_going_to_official(self, event):
-        if event.get("message"):
+        if event.get("message") and event['message'].get("text"):
             text = event['message']['text']
             return text.lower() == 'website'
         return False
 
     def is_going_to_pokedex(self, event):
-        if event.get("message"):
+        if event.get("message") and event['message'].get("text"):
             text = event['message']['text']
             return text.lower() == 'pokedex'
         elif event.get('postback'):
@@ -65,17 +65,17 @@ class TocMachine(GraphMachine):
             return text.lower() == 'quit'
         return False
     def is_going_to_raid(self, event):
-        if event.get("message"):
+        if event.get("message") and event['message'].get("text"):
             text = event['message']['text']
             return text.lower() == 'raid'
         return False
     def is_going_to_type(self, event):
-        if event.get("message"):
+        if event.get("message") and event['message'].get("text"):
             text = event['message']['text']
             return text.lower() == 'type'
         return False
     def is_going_to_mission(self, event):
-        if event.get("message"):
+        if event.get("message") and event['message'].get("text"):
             text = event['message']['text']
             return text.lower() == 'mission'
         return False
